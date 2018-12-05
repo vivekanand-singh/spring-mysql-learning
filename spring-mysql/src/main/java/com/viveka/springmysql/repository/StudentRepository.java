@@ -6,5 +6,7 @@ import com.viveka.springmysql.model.StudentInfo;
 
 @Component
 public interface StudentRepository extends JpaRepository<StudentInfo, Long> {
+  StudentInfo findByName(String name);
 
+  StudentInfo findById(long id);
 }

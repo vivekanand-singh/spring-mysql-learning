@@ -1,7 +1,6 @@
 package com.viveka.springmysql.controller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,21 +30,21 @@ public class StudentController {
   }
 
   @GetMapping(value = "/{roll}")
-  Optional<StudentInfo> getRoll(@PathVariable Long roll) {
+  StudentInfo getRoll(@PathVariable long roll) {
     return studentRepo.findById(roll);
   }
 
   @PostMapping(value = "/insert")
-  Optional<StudentInfo> insert(@RequestBody StudentInfo std) {
+  StudentInfo insert(@RequestBody StudentInfo std) {
     studentRepo.save(std);
     return studentRepo.findById(std.getRollNumber());
   }
 
   @PutMapping(value = "/update/{roll}")
-  Optional<StudentInfo> update(@RequestBody StudentInfo std, @PathVariable Long roll) {
+  StudentInfo update(@RequestBody StudentInfo std, @PathVariable Long roll) {
     std.setRollNumber(roll);
     studentRepo.save(std);
-    return studentRepo.findById(roll);
+    return studentRepo.findByName(std.getName());
   }
 
   @DeleteMapping(value = "/delete/{roll}")
