@@ -33,13 +33,9 @@ public class MarksController {
   @PostMapping(value = "/insert")
   List<MarksInfo> insert(@RequestBody MarksInfo marks) {
     long roll = marks.getStd().getRollNumber();
-    MarksInfo markin = marksRepo.findOne(roll);
-    if (markin.getSubjectName() != marks.getSubjectName()) {
-      marks.setStd(student.getRoll(roll));
-      marksRepo.save(marks);
-      return marksRepo.findById(marks.getMarksId());
-    } else
-      return marksRepo.findById(markin.getMarksId());
+    marks.setStd(student.getRoll(roll));
+    marksRepo.save(marks);
+    return marksRepo.findById(marks.getMarksId());
   }
 
   @PutMapping(value = "/update/{roll}")

@@ -19,10 +19,7 @@ public class StudentController {
   @Autowired
   StudentRepository studentRepo;
 
-  @GetMapping(value = "/")
-  String greet() {
-    return "hello";
-  }
+
 
   @GetMapping(value = "/all")
   List<StudentInfo> getAll() {
@@ -31,6 +28,8 @@ public class StudentController {
 
   @GetMapping(value = "/{roll}")
   StudentInfo getRoll(@PathVariable long roll) {
+    if (studentRepo.findById(roll) == null)
+      throw new RuntimeException("id not found");
     return studentRepo.findById(roll);
   }
 

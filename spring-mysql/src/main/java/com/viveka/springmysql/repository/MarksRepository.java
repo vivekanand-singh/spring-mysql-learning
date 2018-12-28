@@ -6,6 +6,4 @@ import com.viveka.springmysql.model.MarksInfo;
 
 public interface MarksRepository extends JpaRepository<MarksInfo, Long> {
   List<MarksInfo> findById(long id);
-
-  MarksInfo findOne(long roll);
 }
