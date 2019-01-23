@@ -30,6 +30,7 @@ public class StudentController {
   StudentInfo getRoll(@PathVariable long roll) {
     if (studentRepo.findById(roll) == null)
       throw new RuntimeException("id not found");
+    System.out.println(studentRepo.findById(roll));
     return studentRepo.findById(roll);
   }
 
