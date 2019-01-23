@@ -11,7 +11,8 @@ $( document ).ready(function() {
     function ajaxPost(){
     	
     	// PREPARE FORM DATA
-    	var data={rollNumber :$("rollNumber").val()}
+    	var data={rollNumber :$("#rollNumber").val()};
+    	console.log(data);
     	var formData = {
     	    subjectName : $("#subjectName").val(),
     	    marks :  $("#marks").val(),
