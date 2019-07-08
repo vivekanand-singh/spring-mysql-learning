@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/marks")
 public class marksview {
-  @GetMapping(value = "/")
+  @GetMapping()
   public String greet() {
     return "marks";
+  }
+
+  @GetMapping("/findAll")
+  public String getAll() {
+    return "marksAll";
   }
 }

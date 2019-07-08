@@ -2,6 +2,7 @@ package com.viveka.springmysql.controller;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,6 +46,8 @@ public class StudentControllerTest {
 
     when(stdRepo.findById(2)).thenReturn(student);
     mockMvc.perform(get("/student/2")).andExpect(status().isOk());
+
+    mockMvc.perform(post("/student/insert")).andExpect(status().isOk());
   }
 
 

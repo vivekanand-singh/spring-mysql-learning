@@ -1,0 +1,39 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+
+$(function() {
+
+var entries = [];
+var store = "http://localhost:300/marks/all";
+$.getJSON( store, function(data) {
+   $.each(data, function(i, f) {
+      var tblRow = "<tr>" + "<td>" + f.std.rollNumber + "</td>"+"<td>" + f.std.name + "</td>" + "<td>" + f.subjectName + "</td>"+ "<td>"+f.marks + "</td>"+"</tr>"
+       $('#entrydata tbody').append(tblRow);
+ });
+
+});
+
+});
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<table id= "entrydata" border="1">
+<thead>
+    <tr><td>Roll Number</td> <td>Subject Name</td> <td>Subject Name</td><td>Marks</td></tr>
+    </thead>
+  <tbody>
+
+   </tbody>
+</table>
+
+</div>
+
+
+</body>
+
+</html>
